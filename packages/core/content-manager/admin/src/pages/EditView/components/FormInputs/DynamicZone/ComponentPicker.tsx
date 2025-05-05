@@ -1,11 +1,9 @@
-import * as React from 'react';
-
 import { Box, Flex, Accordion, Typography } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 
 import { getTranslation } from '../../../../../utils/translations';
 
-import { ComponentCategory, ComponentCategoryProps } from './ComponentCategory';
+import { ComponentCategory, ComponentCategoryProps } from './CustomComponentCategory';
 
 interface ComponentPickerProps {
   dynamicComponentsByCategory?: Record<string, NonNullable<ComponentCategoryProps['components']>>;

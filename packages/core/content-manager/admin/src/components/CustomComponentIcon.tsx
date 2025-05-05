@@ -1,11 +1,41 @@
+import * as React from 'react';
+
+import { Button, Flex, FlexProps, Modal } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
+import * as CustomIcons from './icons';
 import * as Symbols from '@strapi/icons/symbols';
 
-export type Icon = (typeof Icons)[keyof typeof Icons] | (typeof Symbols)[keyof typeof Symbols];
+import type { Struct } from '@strapi/types';
 
-import * as CustomIcons from './icons';
+interface ComponentIconProps extends FlexProps {
+  showBackground?: boolean;
+  icon?: Struct.ContentTypeSchemaInfo['icon'];
+}
 
-const COMPONENT_ICONS: Record<string, Icon> = {
+const ComponentIcon = ({
+  showBackground = true,
+  icon = 'dashboard',
+  ...props
+}: ComponentIconProps) => {
+  const Icon = COMPONENT_ICONS[icon as keyof typeof COMPONENT_ICONS] || COMPONENT_ICONS.dashboard;
+
+  return (
+    <Flex
+      alignItems="center"
+      background={showBackground ? 'neutral200' : undefined}
+      justifyContent="center"
+      height={'120px'}
+      width={'120px'}
+      color="neutral600"
+      position={'relative'}
+      {...props}
+    >
+      <Icon height="100%" width="100%" />
+    </Flex>
+  );
+};
+
+const COMPONENT_ICONS: Record<string, React.ComponentType<any>> = {
   alien: Icons.Alien,
   apps: Icons.GridNine,
   archive: Icons.Archive,
@@ -135,4 +165,5 @@ const COMPONENT_ICONS: Record<string, Icon> = {
   button: CustomIcons.Button,
 };
 
-export { COMPONENT_ICONS };
+export { ComponentIcon, COMPONENT_ICONS };
+export type { ComponentIconProps };
