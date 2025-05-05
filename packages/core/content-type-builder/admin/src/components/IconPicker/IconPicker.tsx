@@ -61,6 +61,8 @@ const IconPick = ({ iconKey, name, onChange, isSelected, ariaLabel }: IconPickPr
             cursor="pointer"
             hasRadius
             background={isSelected ? 'primary200' : undefined}
+            width={'36px'}
+            height={'36px'}
           >
             <Icon width={'2rem'} height={'2rem'} fill={isSelected ? 'primary600' : 'neutral300'} />
           </Flex>

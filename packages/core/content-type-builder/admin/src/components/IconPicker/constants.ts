@@ -5,6 +5,11 @@ export type Icon = (typeof Icons)[keyof typeof Icons] | (typeof Symbols)[keyof t
 
 import * as CustomIcons from './icons';
 
+const CUSTOM_COMPONENT_ICONS: Record<string, Icon> = {
+  square: CustomIcons.Square,
+  button: CustomIcons.Button,
+};
+
 const COMPONENT_ICONS: Record<string, Icon> = {
   alien: Icons.Alien,
   apps: Icons.GridNine,
@@ -131,8 +136,7 @@ const COMPONENT_ICONS: Record<string, Icon> = {
   walk: Icons.Walk,
   wheelchair: Icons.Wheelchair,
   write: Icons.Feather,
-  square: CustomIcons.Square,
-  button: CustomIcons.Button,
+  ...CUSTOM_COMPONENT_ICONS,
 };
 
 export { COMPONENT_ICONS };

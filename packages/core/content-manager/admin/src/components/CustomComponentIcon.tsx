@@ -35,7 +35,14 @@ const ComponentIcon = ({
   );
 };
 
-const COMPONENT_ICONS: Record<string, React.ComponentType<any>> = {
+type Icon = (typeof Icons)[keyof typeof Icons] | (typeof Symbols)[keyof typeof Symbols];
+
+const CUSTOM_COMPONENT_ICONS: Record<string, Icon> = {
+  square: CustomIcons.Square,
+  button: CustomIcons.Button,
+};
+
+const COMPONENT_ICONS: Record<string, Icon> = {
   alien: Icons.Alien,
   apps: Icons.GridNine,
   archive: Icons.Archive,
@@ -161,8 +168,7 @@ const COMPONENT_ICONS: Record<string, React.ComponentType<any>> = {
   walk: Icons.Walk,
   wheelchair: Icons.Wheelchair,
   write: Icons.Feather,
-  square: CustomIcons.Square,
-  button: CustomIcons.Button,
+  ...CUSTOM_COMPONENT_ICONS,
 };
 
 export { ComponentIcon, COMPONENT_ICONS };

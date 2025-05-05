@@ -164,18 +164,10 @@ const PreviewButton = styled(Button)``;
 
 const ComponentBox = styled<FlexComponent<'button'>>(Flex)`
   color: ${({ theme }) => theme.colors.neutral600};
-  /* cursor: pointer; */
 
   @media (prefers-reduced-motion: no-preference) {
     transition: color 120ms ${(props) => props.theme.motion.easings.easeOutQuad};
   }
-
-  /* &:focus,
-  &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.primary200};
-    background: ${({ theme }) => theme.colors.primary100};
-    color: ${({ theme }) => theme.colors.primary600};
-  } */
 `;
 
 export { ComponentCategory };
