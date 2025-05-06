@@ -3,7 +3,12 @@ import { useStrapiApp, InjectionZoneComponent } from '@strapi/admin/strapi-admin
 import { PLUGIN_ID } from '../constants/plugin';
 
 const INJECTION_ZONES = {
-  editView: { informations: [], 'right-links': [] },
+  editView: {
+    informations: [],
+    'right-links': [],
+    'dynamic-zone-actions': [],
+    'repeatable-component-actions': [],
+  },
   listView: {
     actions: [],
     deleteModalAdditionalInfos: [],
@@ -19,6 +24,8 @@ interface InjectionZones {
   editView: {
     informations: InjectionZoneComponent[];
     'right-links': InjectionZoneComponent[];
+    'dynamic-zone-actions': InjectionZoneComponent[];
+    'repeatable-component-actions': InjectionZoneComponent[];
   };
   listView: {
     actions: InjectionZoneComponent[];
@@ -39,7 +46,9 @@ type InjectionZoneArea =
   | 'listView.deleteModalAdditionalInfos'
   | 'listView.publishModalAdditionalInfos'
   | 'listView.deleteModalAdditionalInfos'
-  | 'preview.actions';
+  | 'preview.actions'
+  | 'editView.dynamic-zone-actions'
+  | 'editView.repeatable-component-actions';
 
 type InjectionZoneModule = InjectionZoneArea extends `${infer Word}.${string}` ? Word : never;
 type InjectionZoneContainer = InjectionZoneArea extends `${string}.${infer Word}.${string}`
