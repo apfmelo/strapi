@@ -82,15 +82,6 @@ const ComponentCategory = ({
 
                     <Flex gap={1}>
                       <Button
-                        variant="default"
-                        aria-label="Open icon modal"
-                        size="S"
-                        onClick={onAddComponent(uid)}
-                      >
-                        Add
-                      </Button>
-
-                      <PreviewButton
                         variant="tertiary"
                         aria-label="Open icon modal"
                         size="S"
@@ -99,7 +90,15 @@ const ComponentCategory = ({
                         }}
                       >
                         <Icons.Eye width="16px" height="16px" />
-                      </PreviewButton>
+                      </Button>
+                      <Button
+                        variant="default"
+                        aria-label="Open icon modal"
+                        size="S"
+                        onClick={onAddComponent(uid)}
+                      >
+                        Add
+                      </Button>
                     </Flex>
                   </Flex>
                 </ComponentBox>
@@ -159,8 +158,6 @@ const Grid =
         grid-template-columns: repeat(auto-fill, 100%);
         grid-gap: 4px;
       `;
-
-const PreviewButton = styled(Button)``;
 
 const ComponentBox = styled<FlexComponent<'button'>>(Flex)`
   color: ${({ theme }) => theme.colors.neutral600};

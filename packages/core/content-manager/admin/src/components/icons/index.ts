@@ -1,2 +1,1 @@
-export { default as Square } from './Square';
-export { default as Button } from './Button';
+export { default as CardWhite } from './CardWhite';

@@ -1,6 +1,4 @@
-import * as React from 'react';
-
-import { Button, Flex, FlexProps, Modal } from '@strapi/design-system';
+import { Flex, FlexProps } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
 import * as CustomIcons from './icons';
 import * as Symbols from '@strapi/icons/symbols';
@@ -30,7 +28,7 @@ const ComponentIcon = ({
       position={'relative'}
       {...props}
     >
-      <Icon height="100%" width="100%" />
+      <Icon height="120px" width="120px" />
     </Flex>
   );
 };
@@ -38,8 +36,7 @@ const ComponentIcon = ({
 type Icon = (typeof Icons)[keyof typeof Icons] | (typeof Symbols)[keyof typeof Symbols];
 
 const CUSTOM_COMPONENT_ICONS: Record<string, Icon> = {
-  square: CustomIcons.Square,
-  button: CustomIcons.Button,
+  cardWhite: CustomIcons.CardWhite,
 };
 
 const COMPONENT_ICONS: Record<string, Icon> = {
